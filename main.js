@@ -1,29 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Porcentagem Desconto Sálario JS</title>
-</head>
-<body>
-<!--ideia inicial é construir uma calculadora dessas que mostra os descontos (o que foi descontado, me inspirando na aula de extensão da professora Clarice-->
-    <div class="container">
-        <H1>Calculadora de desconto percentual de Salário</H1>
-<input id="sb" placeholder="Salário Bruto" type="number">
+function enviar() {
+  var nome = document.getElementById("nome").value;
 
-<input id="desc" placeholder="Descontos(%) SEM SINAL DE %" type="text">
+  var sb = document.getElementById("sb").value;
+  var desc = document.getElementById("desc").value;
 
-<button onclick="enviar()" class="resultado">Enviar</button>
+  var liquido = sb - (sb * desc / 100);
 
-<div class="msg"></div>
+  var desconto = liquido - sb
 
-<br><br>
-Por Marco Marchi
-</div>
-<script src="main.js"></script>
-</body>
-</html>
+  document.querySelector(".msg").innerHTML = `Então ${nome} o valor líquido é de R$ ${liquido.toFixed(2)} e é descontado do seu salário todo mês R$ ${desconto}.`;
+}
